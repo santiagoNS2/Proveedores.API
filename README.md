@@ -91,7 +91,8 @@ PUT	/api/Proveedores/{id}	Actualizar proveedor
 DELETE	/api/Proveedores/{id}	Eliminar proveedor
 
 🧾 Ejemplo de proveedor
-```{
+``` json
+{
   "nit": "123456789",
   "razonSocial": "Proveedor Ejemplo",
   "direccion": "Calle 123 #45-67",
