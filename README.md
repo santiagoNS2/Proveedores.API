@@ -60,7 +60,7 @@ La API está protegida con JWT. Para autenticarte:
 ```json
 {
   "username": "admin",
-  "password": "admin123"
+  "password": "1234"
 }
 ```
 
