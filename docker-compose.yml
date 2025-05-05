@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  api:
+    build:
+      context: .
+      dockerfile: Proveedores.API/Dockerfile
+    container_name: proveedores_api
+    ports:
+      - "5000:80"
+    depends_on:
+      - mongo
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - MongoDbSettings__ConnectionString=mongodb://mongo:27017
+      - MongoDbSettings__DatabaseName=ProveedoresDb
+      - MongoDbSettings__CollectionName=Proveedores
+      - JwtSettings__SecretKey=clave-super-secreta-para-la-api
+      - JwtSettings__Issuer=ProveedoresAPI
+      - JwtSettings__Audience=ProveedoresFrontend
+      - JwtSettings__ExpirationMinutes=60
+
+volumes:
+  mongo_data:
