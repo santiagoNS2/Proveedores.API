@@ -52,9 +52,15 @@ namespace Proveedores.API.Controllers
     }
 
     // DTO para login
+    /// <summary>
+    /// Modelo para solicitar el inicio de sesión y obtener un token JWT.
+    /// </summary>
     public class LoginRequest
     {
+        /// <summary> Nombre de usuario del sistema. </summary>
         public string Username { get; set; } = null!;
+
+        /// <summary> Contraseña del usuario. </summary>
         public string Password { get; set; } = null!;
     }
 }

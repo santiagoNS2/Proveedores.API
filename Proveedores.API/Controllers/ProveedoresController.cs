@@ -9,7 +9,6 @@ namespace Proveedores.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    
     [Authorize]
     public class ProveedoresController : ControllerBase
     {
@@ -20,6 +19,10 @@ namespace Proveedores.API.Controllers
             _service = service;
         }
 
+        /// <summary>
+        /// Obtiene todos los proveedores registrados en el sistema.
+        /// </summary>
+        /// <returns>Lista de proveedores</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Proveedor>>> Get()
         {
@@ -27,6 +30,11 @@ namespace Proveedores.API.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Obtiene un proveedor específico por su ID.
+        /// </summary>
+        /// <param name="id">ID del proveedor</param>
+        /// <returns>Proveedor con el ID indicado</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Proveedor>> GetById(string id)
         {
@@ -35,6 +43,11 @@ namespace Proveedores.API.Controllers
             return Ok(proveedor);
         }
 
+        /// <summary>
+        /// Crea un nuevo proveedor.
+        /// </summary>
+        /// <param name="dto">Datos del proveedor a registrar</param>
+        /// <returns>Proveedor creado</returns>
         [HttpPost]
         public async Task<IActionResult> Crear([FromBody] CrearProveedorDto dto)
         {
@@ -56,6 +69,11 @@ namespace Proveedores.API.Controllers
             return Ok(proveedor);
         }
 
+        /// <summary>
+        /// Actualiza los datos de un proveedor existente.
+        /// </summary>
+        /// <param name="id">ID del proveedor a actualizar</param>
+        /// <param name="proveedor">Objeto proveedor actualizado</param>
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] Proveedor proveedor)
         {
@@ -63,6 +81,10 @@ namespace Proveedores.API.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Elimina un proveedor por su ID.
+        /// </summary>
+        /// <param name="id">ID del proveedor a eliminar</param>
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
