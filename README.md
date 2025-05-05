@@ -109,6 +109,7 @@ DELETE	/api/Proveedores/{id}	Eliminar proveedor
 El repositorio incluye archivo docker-compose.yml y Dockerfile para facilitar la ejecución del entorno completo.
 
 La documentación Swagger está enriquecida con comentarios XML para claridad.
+
 🚀 Autor
 Santiago N.S.
 Prueba técnica para desarrollador backend .NET
